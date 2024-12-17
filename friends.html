@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Page</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial, sans-serif';
+      background: linear-gradient(to bottom, #f8c6d3, #fde8db);
+      color: #444;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, rgba(248, 198, 211, 0.9), rgba(224, 123, 162, 0.9)); /* Gradient header */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #fff;
+        }
+
+        nav ul li ul {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8c6d3;
+            display: none;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 150px;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+            color: #fff;
+            display: block;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #e89fb0;
+        }
+
+/* Profile Section with Gradient */
+.profile-section {
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #f8c6d3, #fde8db); /* Gradient background */
+    border-radius: 10px;
+    margin-top:0px;
+}
+
+
+/* Quote styling */
+.profile-section p {
+    font-size: 2rem; /* Makes the font larger */
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Adds shadow for more appeal */
+    letter-spacing: 1px; /* Slight spacing between letters */
+    line-height: 1.5;
+    font-style: italic; /* Italicized for more emphasis */
+}
+
+
+
+      /* Highlights Section */
+        .highlights {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #d17884;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .highlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .highlight-item p {
+            font-size: 0.9rem;
+            margin-top: 8px;
+            color: #666;
+        }
+
+        /* Grid Section */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px; 
+    max-width: 80%;  
+    margin: 0 auto; 
+margin-top: 20px; 
+}
+        .grid-item {
+            position: relative;
+            border: 3px solid #d17884;
+            border-radius: 10px;
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+
+        .grid-item img {
+            width:100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #e0e0e0;
+        }
+
+        .grid-buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #e89fb0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d17884;
+        }
+
+        /* Reels Section */
+        .reels-section {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .reels-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        video {
+            width: 400px;
+            border-radius: 10px;
+            border: 3px solid #dbdbdb;
+        }
+    /* Footer */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(253, 232, 219, 0.9); /* Transparent footer */
+      color: #666;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #d17a92;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="image/2.svg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="friends.html">Friends</a>
+        <li><a href="family.html">Family</a></li>
+
+        <li><a href="educations.html">Educations</a>
+          <ul>
+            <li><a href="educations.html#primary-school">Primary School</a></li>
+            <li><a href="educations.html#high-school">High School</a></li>
+            <li><a href="educations.html#university">University</a></li>
+          </ul>
+        </li>
+
+        <li><a href="hobbies.html">Hobbies</a></li>
+
+        <li><a href="gallery.html">Gallery</a>
+	<ul>
+            <li><a href="gallery.html#friends-videos">Random</a></li>
+            <li><a href="gallery.html#my-vlog">Vlog</a></li>
+      </ul>
+	</li>
+    </nav>
+  </header>
+
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+<br>
+            <p>"Life was meant for good friends and great adventures."</p><br>
+    </section>
+
+  <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/mokti.jpg" alt="mokti">
+            </div>
+            <p>mokti</p>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/dip.jpg" alt="Dip gangs">
+            </div>
+            <p>dip gangs</p>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/dip6.jpg" alt="Classmate">
+            </div>
+            <p>fav trio</p>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/dip4.jpg" alt="Mokti">
+            </div>
+            <p>SAF</p>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/gamayan10.jpg" alt="Dip gangs">
+            </div>
+            <p>highschool</p>
+        </div>
+        <div class="highlight-item">
+            <div class="highlight-image">
+                <img src="image/dip5.jpg" alt="Classmate">
+            </div>
+            <p>coding</p>
+        </div>
+    </section>
+
+<!-- Grid Section -->
+<section class="grid-section">
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="image/dip11.jpg" alt="Item 1">
+            <i><p class="image-description">my precious classmate</p></i>
+        </div>
+        <div class="grid-item">
+            <img src="image/friendbg.jpg" alt="Item 2">
+            <i><p class="image-description">our perthlis trip</p></i>
+        </div>
+        <div class="grid-item">
+            <img src="image/trio2.jpg" alt="Item 3">
+            <i><p class="image-description">concubine lane memories</p></i>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Reels Section -->
+    <section class="reels-section">
+        <div class="reels-container">
+            <video src="video/sabaqwey.mp4" controls></video>
+            <video src="video/perigi.mp4" controls></video>
+            <video src="video/sulam.mp4" controls></video>
+        </div>
+    </section>
+
+  <footer>
+    <p>&copy; SNA 2024. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

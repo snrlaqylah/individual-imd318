@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial, sans-serif';
+      background-image: url('image/background.svg'); /* Replace with your background image path */
+      background-size: cover; /* Ensures the image covers the entire page */
+      background-position: center center; /* Centers the image */
+      background-attachment: fixed; /* Fixes the image in place while scrolling */
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 40px;
+      background: linear-gradient(135deg, rgba(248, 198, 211, 0.9), rgba(224, 123, 162, 0.9)); /* Gradient header */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 5px 10px;
+      transition: border-bottom 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      border-bottom: 2px solid #fff;
+    }
+
+    nav ul li ul {
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f8c6d3;
+      display: none;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      width: 150px;
+    }
+
+    nav ul li ul li a {
+      padding: 10px 15px;
+      color: #fff;
+      display: block;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #e89fb0;
+    }
+
+    /* Song Icon */
+    .song-icon {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .song-icon:hover {
+      color: #d17884;
+    }
+
+    /* Hero Section */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background-color: rgba(255, 245, 247, 0.9); /* Transparent background */
+      height: 100vh;
+      flex-direction: row; /* Align image with text */
+      gap: 0px;
+    }
+
+    .hero .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero .content h1 {
+      font-size: 5rem; /* Increase font size for more impact */
+      line-height: 1.2; /* Tighter line height for better text density */
+      margin-bottom: 30px; /* Increase space below */
+      font-weight: 700; /* Make the text bold */
+      color: #d17884; /* Set a bold color to match the gradient */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    }
+
+    .hero .content h1 span {
+      display: block;
+      font-size: 3.5rem;
+      font-family: 'Dancing Script', cursive;
+      color: #d17884;
+      background: linear-gradient(to right, #d17884, #e89fb0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 20px;
+      font-family: 'Roboto', sans-serif; /* A clean, modern sans-serif font */
+      font-weight: 400; /* Normal weight for better readability */
+      line-height: 1.5; /* Better line spacing for clarity */
+    }
+
+    .hero .cta-btn {
+      text-decoration: none;
+      color: #fff;
+      background-color: #d17a92;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(209, 122, 146, 0.5);
+    }
+
+    .hero .cta-btn:hover {
+      background-color: #e89fb0;
+      box-shadow: 0 6px 20px rgba(232, 159, 176, 0.8);
+    }
+
+    /* Image Frame and Sizing */
+    .hero .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero .image-container img {
+      width: 50%; /* Take up half the page */
+      border-radius: 50%; /* Make the image circular */
+      border: 10px solid #f8c6d3; /* Beautiful frame color */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+      transition: transform 0.3s ease;
+    }
+
+    .hero .image-container img:hover {
+      transform: scale(1.05); /* Slight zoom on hover for effect */
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(253, 232, 219, 0.9); /* Transparent footer */
+      color: #666;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #d17a92;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="background-music" loop>
+    <source src="audio/aboutyou.mp3" type="audio/mp3">
+  </audio>  
+
+<header>
+    <div class="logo">
+      <img src="image/2.svg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="friends.html">Friends</a>
+        <li><a href="family.html">Family</a></li>
+
+        <li><a href="educations.html">Educations</a>
+          <ul>
+            <li><a href="educations.html#primary-school">Primary School</a></li>
+            <li><a href="educations.html#high-school">High School</a></li>
+            <li><a href="educations.html#university">University</a></li>
+          </ul>
+        </li>
+
+        <li><a href="hobbies.html">Hobbies</a></li>
+
+        <li><a href="gallery.html">Gallery</a>
+	<ul>
+            <li><a href="gallery.html#friends-videos">Random</a></li>
+            <li><a href="gallery.html#my-vlog">Vlog</a></li>
+      </ul>
+	</li>
+    </nav>
+  </header>
+
+
+  <section class="hero">
+    <div class="image-container">
+      <img src="image/aqilah4.jpg" alt="Beautiful Image">
+    </div>
+    <div class="content">
+      <h1>Welcome to <br><span>Aqilah's Treasure of Life</span></h1>
+      <p><i>"This is a place where I share my experiences, thoughts, and memories."</i></p>
+      <a href="aboutme.html" class="cta-btn">About Me</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; SNA 2024. All Rights Reserved.</p>
+  </footer>
+
+
+  <script>
+    // JavaScript for toggling music playback
+    let isMusicPlaying = false;
+    const music = document.getElementById('background-music');
+
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        music.pause();
+        isMusicPlaying = false;
+      } else {
+        music.play();
+        isMusicPlaying = true;
+      }
+    }
+  </script>
+</body>
+</html>
+

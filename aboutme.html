@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <style>
+    /* Reset Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+/* Body Background Layer */
+body {
+  font-family: 'Arial, sans-serif';
+  background: linear-gradient(to bottom, #f8c6d3, #fde8db); /* Gradient from pink to soft cream */
+  color: #444;
+  line-height: 1.6;
+  background-attachment: fixed; /* Optional: Makes the gradient fixed during scroll */
+  background-size: cover;
+}
+
+
+         /* Header */
+        header {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, rgba(248, 198, 211, 0.9), rgba(224, 123, 162, 0.9)); /* Gradient header */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #fff;
+        }
+
+        nav ul li ul {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8c6d3;
+            display: none;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 150px;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+            color: #fff;
+            display: block;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #e89fb0;
+        }
+
+
+    /* Title Section */
+    .title {
+      text-align: center;
+      padding: 20px;
+      color: #d17884;
+      font-size: 3.5rem;
+      font-weight: bold;
+      font-style: 'Dancing Script', cursive;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Main Section */
+    .main {
+      display: flex;
+      padding: 20px;
+      justify-content: center;
+      gap: 10px; /* Reduced gap between content */
+      align-items: center;
+      min-height: 100vh;
+      margin-top: 0; /* Adjusted top margin */
+    }
+
+    /* Text Section (Image and Info) */
+    .main .text-section {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      max-width: 80%;
+      gap: 20px; /* Reduced gap between content inside section */
+    }
+
+    .main .text-section .image-section {
+      max-width: 50%;
+      border: 5px solid #d17884;
+      border-radius: 10px;
+      padding: 5px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main .text-section .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px; /* Square-like border */
+    }
+
+    .main .text-section .quote {
+      font-size: 1.0rem;
+      color: #d17884;
+      font-style: italic;
+      position: relative;
+      padding: 7px;
+      text-align: center;
+      background-color: #f8c6d3;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .main .text-section .quote p {
+      padding-top: 10px;
+    }
+
+    .main .text-section .about-me {
+      font-size: 0.8rem;
+      color: #555;
+      text-align: justify, left;
+      margin-bottom: 15px;
+    }
+
+    .cta-btn {
+      background-color: #d17884;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* New Video Section */
+.intro-video {
+  margin-top: 20px; /* Add space between the Favorite and Video sections */
+  text-align: center;
+  padding: 10px;
+}
+
+.intro-video h2 {
+  font-size: 2rem;
+  color: #d17884;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  max-width: 50%; /* Limit the width of the video */
+  margin: 0 auto; /* Center the video container */
+  padding: 5px; /* Add some padding around the video */
+  border: 5px solid #d17884; /* Add a frame around the video */
+  border-radius: 15px; /* Round the corners of the frame */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Shadow for a 3D effect */
+}
+
+video {
+  width: 95%; /* Ensure the video fits within the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Round the corners of the video itself */
+}
+
+
+    /* New Box for Favorite Sections */
+    .favorite-box {
+      display: flex;
+      gap: 5px; /* Further reduced gap between sections */
+      margin-top: 20px; /* Reduced margin from top */
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Individual Favorite Sections */
+    .favorite-section {
+      background-color: #fff;
+      padding: 10px; /* Further reduced padding */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 220px; /* Reduced width to make sections more compact */
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 5px; /* Reduced margin between sections */
+    }
+
+    .favorite-section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .favorite-section h3 {
+      color: #d17884;
+      margin-bottom: 5px;
+    }
+
+    .favorite-section img {
+      width: 100%;
+      height: 180px; /* Adjusted height for consistency */
+      object-fit: cover;
+      border-radius: 10px;
+      border: 5px solid #d17884; /* Frame like homepage */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .favorite-section:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(253, 232, 219, 0.9); /* Transparent footer */
+      color: #666;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #d17a92;
+      font-weight: bold;
+    }
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #fde8db;
+  color: #666;
+  margin-top: 40px; /* Add this margin to create space above the footer */
+}
+
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="song" autoplay loop>
+    <source src="audio/aboutyou.mp3" type="audio/mp3"> 
+    Your browser does not support the audio element.
+  </audio>
+
+  <header>
+    <div class="logo">
+      <img src="image/2.svg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="friends.html">Friends</a>
+        <li><a href="family.html">Family</a></li>
+
+        <li><a href="educations.html">Educations</a>
+          <ul>
+            <li><a href="educations.html#primary-school">Primary School</a></li>
+            <li><a href="educations.html#high-school">High School</a></li>
+            <li><a href="educations.html#university">University</a></li>
+          </ul>
+        </li>
+
+        <li><a href="hobbies.html">Hobbies</a></li>
+
+        <li><a href="gallery.html">Gallery</a>
+	<ul>
+            <li><a href="gallery.html#friends-videos">Random</a></li>
+            <li><a href="gallery.html#my-vlog">Vlog</a></li>
+      </ul>
+	</li>
+    </nav>
+  </header>
+
+
+<section class="main">
+  <div class="text-section">
+    <!-- Left Image Section -->
+    <div class="image-section">
+      <img src="image/aqilah5.jpg" alt="Aqilah Photo">
+    </div>
+    
+    <!-- Right Text Section -->
+    <div>
+      <div class="quote">
+        <p>"You are enough, a thousand times enough"</p>
+      </div>
+<br>
+      <div class="about-me">
+        <h1>About Me</h1>
+        <p>Hello, I’m Siti Nurul Aqilah Binti Abd Karim, but you can call me Aqilah, Qils, or even Nurul, depending on how well you know me! I'm 20 years old and currently in my final year at Universiti Teknologi MARA, Kedah, pursuing a diploma in Information Management. Welcome to my personal space, where I get to share the things that shape who I am. Here, you’ll find more about my passions, interests, and the people who inspire me the most. This is a place for me to open up about my journey, from my academic adventures to the little moments that make life special. I hope you enjoy exploring this space as much as I enjoy creating it!</p>
+        <br>
+        <h3>Contact Details</h3>
+        <ul style="list-style: disc; padding-left: 20px;">
+          <li><strong>Address:</strong> No F78, Kampung Sungai Udang, 06900, Yan Kedah</li>
+          <li><strong>Phone No:</strong> 011-33354019</li>
+          <li><strong>Email:</strong> qyha517@gmail.com</li>
+        </ul>
+        <br>
+<h3>My Social Media</h3>
+<ul style="list-style: none; padding-left: 0; display: flex; gap: 20px;">
+  <li style="display: flex; align-items: center;">
+    <a href="https://wa.me/601133354019" target="_blank" style="display: flex; align-items: center;">
+      <img src="image/1.svg" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;">
+      <p style="margin: 0;">WhatsApp</p>
+    </a>
+  </li>
+  
+  <li style="display: flex; align-items: center;">
+    <a href="https://www.tiktok.com/@ess.en.ay_" target="_blank" style="display: flex; align-items: center;">
+      <img src="image/3.svg" alt="TikTok" style="width: 30px; height: 30px; margin-right: 10px;">
+      <p style="margin: 0;">TikTok</p>
+    </a>
+  </li>
+
+  <li style="display: flex; align-items: center;">
+    <a href="https://www.instagram.com/s_nrlaqylah" target="_blank" style="display: flex; align-items: center;">
+      <img src="image/4.svg" alt="Instagram" style="width: 30px; height: 30px; margin-right: 10px;">
+      <p style="margin: 0;">Instagram</p>
+    </a>
+  </li>
+</ul>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Section for Introduction Video -->
+<section class="intro-video">
+  <h2>Introduction Video</h2>
+  <div class="video-container">
+<align:center;>
+    <video width="30%" height="auto" controls>
+      <source src="video/intro.mp4" type="video/mp4"> <!-- Replace with your video file path -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+  <!-- New Box for Favorite Sections -->
+  <section class="favorite-box">
+    <div class="favorite-section" id="favorite-song" onclick="playSong()">
+      <h3>Favorite Song</h3>
+      <img src="image/aboutme.jpg" alt="Song Image">
+      <i><p>Click to play my favorite song!</p></i>
+    </div>
+    
+    <div class="favorite-section">
+      <h3>Favorite Food</h3>
+      <img src="image/gepuk.jpg" alt="Food Image">
+      <i><p>My everytime comfort food</p></i>
+    </div>
+
+    <div class="favorite-section">
+      <h3>Favorite Movie</h3>
+      <img src="image/moana.jpg" alt="Movie Image">
+      <i><p>A must-watch movie!</p></i>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>&copy; SNA 2024. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function playSong() {
+      const audio = document.getElementById('song');
+      audio.play();
+    }
+  </script>
+</body>
+</html> 

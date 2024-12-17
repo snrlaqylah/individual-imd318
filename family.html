@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Memories</title>
+    <style>
+
+    /* Reset Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+html, body {
+    height: 100%; /* Ensure full viewport height */
+    margin: 0;
+}
+
+body {
+    font-family: 'Arial, sans-serif';  
+    background: linear-gradient(to bottom, #f8c6d3, #e8c9d0); 
+    color: #444;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure footer sticks to the bottom */
+    min-height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+        header {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, rgba(248, 198, 211, 0.9), rgba(224, 123, 162, 0.9)); /* Gradient header */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 100%; /* Ensure it covers full width */
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #fff;
+        }
+
+        nav ul li ul {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8c6d3;
+            display: none;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 150px;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+            color: #fff;
+            display: block;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #e89fb0;
+        }
+
+
+/* Picture Section Styles */
+.picture-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.image-frame {
+    display: inline-block;
+    padding: 0px;
+    border: 5px solid #e25f99; /* Border color */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.image-frame img {
+    width: 250%;
+    height: auto;
+    max-width: 350px; /* Adjust based on desired size */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+        /* Family Tree Section */
+        .family-tree-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .family-tree {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .family-member {
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .family-member img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .family-member:hover {
+            transform: scale(1.1);
+        }
+
+        .family-member p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #e25f99;
+        }
+
+
+        .family-tree .branch {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 0px;
+            background-color: #e25f99;
+            border-radius: 3px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .family-tree::before {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 0px;
+            height: 20px;
+            background-color: #e25f99;
+        }
+
+/* Change the font color and size for the titles */
+.section-title {
+    text-align: center;
+    color: #e25f99; /* Change the color to your preferred choice */
+    font-size: 3rem; /* Adjust the size as needed */
+    font-weight: bold;
+    font-family: 'Georgia', sans-serif; /* You can customize the font-family */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow for effect */
+}
+
+/* Add border and shadow effect to the circular images */
+.family-member img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+    border: 4px solid #e25f99; /* Add a border with your chosen color */
+}
+
+
+/* CSS for Centering and Resizing Images */
+
+.family-member-details-content {
+    text-align: center;  
+    position: relative;  
+    margin-bottom: 30px; 
+}
+.family-member-details-content img.resized-img {
+    display: block;          
+    margin: 0 auto;          
+    border-radius: 10px;     
+    width: 300px;            
+    height: 200px;           
+    object-fit: cover;       
+}
+
+/* Additional styling for explanation box */
+.family-member-details-content .explanation-box {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;        
+    margin-left: auto;      
+    margin-right: auto;      
+}
+
+.family-member-details-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+.explanation-box {
+    margin-top: 15px;
+    padding: 20px;
+    border: 4px solid #e25f99;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Shift the Family Tree Image to the Right */
+.family-tree-container {
+    display: flex;
+    justify-content: flex-start;  /* Align family members to the left */
+    margin-left: 10%;  /* Adds space on the left, adjust as needed */
+    max-width: 80%;  /* Optional: limit width of the container */
+    margin-top: 30px;
+}
+
+
+        /* Explanation Box */
+        .explanation-box {
+            margin-top: 15px;
+            padding: 20px;
+            border: 4px solid #e25f99;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+
+        /* Special Event Section */
+        .special-event-section {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 90%;
+        }
+
+        .event-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .event-frame {
+            width: 280px;
+            background: #fff;
+            border: 4px solid #e25f99;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .event-frame:hover {
+            transform: translateY(-20px);
+        }
+
+        .event-frame img, .event-frame video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 4px solid #e25f99;
+        }
+
+        .event-caption {
+            padding: 10px;
+            color: #333;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(253, 232, 219, 0.9); /* Transparent footer */
+    color: #666;
+    margin: 0; /* Make sure there’s no margin that might push it */
+}
+
+
+    footer a {
+      text-decoration: none;
+      color: #d17a92;
+      font-weight: bold;
+    }
+
+        /* Animations */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="image/2.svg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="friends.html">Friends</a>
+        <li><a href="family.html">Family</a></li>
+
+        <li><a href="educations.html">Educations</a>
+          <ul>
+            <li><a href="educations.html#primary-school">Primary School</a></li>
+            <li><a href="educations.html#high-school">High School</a></li>
+            <li><a href="educations.html#university">University</a></li>
+          </ul>
+        </li>
+
+        <li><a href="hobbies.html">Hobbies</a></li>
+
+        <li><a href="gallery.html">Gallery</a>
+	<ul>
+            <li><a href="gallery.html#friends-videos">Random</a></li>
+            <li><a href="gallery.html#my-vlog">Vlog</a></li>
+      </ul>
+	</li>
+    </nav>
+  </header>
+
+
+<!-- Picture Section -->
+<section class="picture-section">
+    <div class="image-frame">
+        <img src="image/family.jpg" alt="Special Family Picture">
+    </div>
+</section>
+
+<!-- Family Tree Section -->
+<div class="family-tree-container">
+    <div class="family-tree">
+        <!-- Family Members as before -->
+    </div>
+</div>
+
+
+<!-- Main Section -->
+<section>
+    <h2 class="section-title"><i>My Family Section</i></h2>
+    <p class="main-description">
+        Explore the roots of my family through this interactive section.
+    </p>
+
+<br>
+    <!-- Family Tree Section -->
+    <div class="family-tree-container">
+        <div class="family-tree">
+            <!-- Family Member 1 (Root) -->
+            <div class="family-member" onclick="showFamilyDetails('parent')">
+                <p>Parent</p>
+		<img src="image/fam3.jpg" alt="Parent">
+                
+            </div>
+
+            <div class="branch"></div>
+            <!-- Family Member 2 -->
+            <div class="family-member" onclick="showFamilyDetails('rafiq')">
+                 <p>Eldest Brother</p>
+		<img src="image/rafiq2.jpg" alt="Rafiq">
+               
+            </div>
+
+            <div class="branch"></div>
+            <!-- Family Member 3 -->
+            <div class="family-member" onclick="showFamilyDetails('izwan')">
+                 <p>Older Brother</p>
+		<img src="image/izwan.jpg" alt="Izwan">
+               
+            </div>
+
+ 	    <div class="branch"></div>
+            <!-- Family Member 2 -->
+            <div class="family-member" onclick="showFamilyDetails('balqis')">
+                <p>Older Sister</p>
+		<img src="image/balqis.jpg" alt="Balqis">
+                
+            </div>
+
+            <div class="branch"></div>
+            <!-- Family Member 3 -->
+            <div class="family-member" onclick="window.location.href='aboutme.html'">
+                <p>Me</p>
+		<img src="image/aqilah.jpg" alt="Me">
+                
+            </div>
+
+ 	    <div class="branch"></div>
+            <!-- Family Member 2 -->
+            <div class="family-member" onclick="showFamilyDetails('shafiqah')">
+                <p>Younger Sister</p>
+		<img src="image/piqah.webp" alt="Shafiqah">
+                
+            </div>
+
+            <div class="branch"></div>
+            <!-- Family Member 3 -->
+            <div class="family-member" onclick="showFamilyDetails('furqan')">
+                <p>Younger Brother</p>
+		<img src="image/furqan.jpg" alt="Furqan">
+                
+            </div>
+
+ 	    <div class="branch"></div>
+            <!-- Family Member 2 -->
+            <div class="family-member" onclick="showFamilyDetails('tihani')">
+                <p>Youngest Sister</p>
+		<img src="image/tihani.jpg" alt="Tihani">
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div id="family-details" class="family-member-details">
+        <!-- Family Member Details will go here -->
+    </div>
+<br><br>
+</section>
+
+
+<!-- Special Event Section -->
+<section class="special-event-section">
+    <h2 class="section-title"><i>Special Family Events</i></h2>
+<br><br>
+    <div class="event-gallery">
+        <div class="event-frame">
+            <img src="image/fam5.jpeg" alt="Event Photo">
+            <div class="event-caption">Birthday Celebration</div>
+        </div>
+        <div class="event-frame">
+            <img src="image/fam.jpg" alt="Trip Photo">
+            <div class="event-caption">Langkawi Trip</div>
+        </div>
+    </div>
+</section>
+
+  <footer>
+    <p>&copy; SNA 2024. All Rights Reserved.</p>
+  </footer>
+
+<script>
+    function showFamilyDetails(member) {
+        let detailsSection = document.getElementById('family-details');
+        let content = '';
+
+        if (member === 'parent') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/momdad.jpg" alt="parent" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Parent</strong></p>
+                        <p>Mr Abd Karim and Mrs Siti Azlina,
+<br>a strong pillar of our family, always telling amazing stories and providing wisdom.</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'rafiq') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/rafiq2.jpg" alt="Rafiq" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Eldest Brother</strong></p>
+                        <p>Name : Muhammad Rafiq bin Abd Karim <br>
+			Age: 29 <br>
+			Status: Married with son and daugther <3.</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'izwan') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/izwan2.jpg" alt="Izwan" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Older Brother</strong></p>
+                        <p>Name : Mohd Izwan bin Abd Karim <br>
+			Age: 27 <br>
+			Status: Engaged <3.</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'balqis') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/balqis2.jpg" alt="Balqis" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Older Sister</strong></p>
+                        <p>Name : Siti Nur Balqis Binti Abd Karim <br>
+			Age: 23 <br>
+			Status: Married <3.</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'shafiqah') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/piqah2.jpg" alt="Shafiqah" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Younger Sister</strong></p>
+                        <p>Name : Siti Nurul Shafiqah Binti Abd Karim<br>
+			Age: 18<br>
+			Status: Worker</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'furqan') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/furqan2.jpg" alt="Furqan" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Younger Brother</strong></p>
+                        <p>Name : Muhammad Furqan bin Abd Karim <br>
+			Age: 15 <br>
+			Status: Maahad student<3.</p>
+                    </div>
+                </div>
+            `;
+        } else if (member === 'tihani') {
+            content = `
+                <div class="family-member-details-content">
+                    <img src="image/tihani2.jpg" alt="Tihani" class="resized-img">
+                    <div class="explanation-box">
+                        <p><strong>Youngest Sister</strong></p>
+                        <p>Name : Siti Nurul Taqiah Tihani Binti Abd Karim <br>
+			Age: 10 <br>
+			Status: Primary school student <3.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        detailsSection.innerHTML = content;
+        detailsSection.style.display = 'block';
+    }
+
+    function goBackToTree() {
+        let detailsSection = document.getElementById('family-details');
+        detailsSection.style.display = 'none';
+    }
+</script>
+
+
+</body>
+</html>
+
+

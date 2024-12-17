@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies Page</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial, sans-serif';
+            background: linear-gradient(to bottom, #fddde6, #fde8db);
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, rgba(248, 198, 211, 0.9), rgba(224, 123, 162, 0.9)); /* Gradient header */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #fff;
+        }
+
+        nav ul li ul {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8c6d3;
+            display: none;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 150px;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+            color: #fff;
+            display: block;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #e89fb0;
+        }
+
+        /* Table Styling */
+        table {
+            width: 70%; /* Reduced width */
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: #f8c6d3; /* Light pink background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a modern look */
+        }
+
+        table, th, td {
+            border: 2px solid #b45a62; /* Border color */
+        }
+
+        th, td {
+            padding: 10px; /* Reduced padding */
+        }
+
+        th {
+            background-color: #d17a92; /* Darker pink for headers */
+            color: white; /* White text for contrast */
+            font-size: 1.1rem;
+        }
+
+        td {
+            background-color: #ffe4e6; /* Lighter pink for table rows */
+            color: #444; /* Dark text for readability */
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        td:hover {
+            background-color: #f8c6d3; /* Highlight on hover with a matching shade */
+        }
+
+        /* Title Section */
+        .title {
+            text-align: center;
+            padding: 120px 60px;
+            background-image: url('image/hobby.svg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: pink;
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .title span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image Frame Styling */
+        .image-frame {
+            width: 150px; /* Fixed width for images */
+            height: 150px; /* Fixed height for images */
+            border: 3px solid #d17a92; /* Border color and thickness */
+            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden; /* Crop overflowed images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the frame without distortion */
+        }
+
+        /* Gallery Section */
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #fde8db;
+            color: #666;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #d17a92;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>  
+<header>
+    <div class="logo">
+      <img src="image/2.svg" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li><a href="friends.html">Friends</a>
+        <li><a href="family.html">Family</a></li>
+
+        <li><a href="educations.html">Educations</a>
+          <ul>
+            <li><a href="educations.html#primary-school">Primary School</a></li>
+            <li><a href="educations.html#high-school">High School</a></li>
+            <li><a href="educations.html#university">University</a></li>
+          </ul>
+        </li>
+
+        <li><a href="hobbies.html">Hobbies</a></li>
+
+        <li><a href="gallery.html">Gallery</a>
+	<ul>
+            <li><a href="gallery.html#friends-videos">Random</a></li>
+            <li><a href="gallery.html#my-vlog">Vlog</a></li>
+      </ul>
+	</li>
+    </nav>
+  </header>
+
+
+    <!-- Title Section -->
+    <div class="title">
+        <span><br></span>
+    </div>
+
+    <!-- Table Section for Hobbies -->
+    <table>
+        <tr>
+            <th>Hobby</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Links</th>
+        </tr>
+        <tr>
+            <td><b>Reading</b></td>
+            <td>I love immersing myself in books, especially romance novels. It's my escape and learning source.</td>
+            <td><div class="image-frame"><img src="image/reading.jpg" alt="Reading Books"></div></td>
+            <td><a href="https://www.goodreads.com/en/book/show/61250989-hikayat-allerednic/" target="_blank">Recommended Books</a></td>
+        </tr>
+        <tr>
+            <td><b>Hearing Music</b></td>
+            <td>Music is my therapy. I listen to everything as long as it is suit with my taste and mood.</td>
+            <td><div class="image-frame"><img src="image/music.webp" alt="Hearing Music"></div></td>
+            <td><a href="https://open.spotify.com/" target="_blank">My Spotify Playlist</a></td>
+        </tr>
+        <tr>
+            <td><b>Photography</b></td>
+            <td>Capturing moments through photography is one of my passions. I enjoy documenting my everyday life.</td>
+            <td><div class="image-frame"><img src="image/aqilah4.jpg" alt="Photography"></div></td>
+            <td><a href="gallery.html">Gallery</a></td>
+        </tr>
+    </table>
+
+  <footer>
+    <p>&copy; SNA 2024. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
